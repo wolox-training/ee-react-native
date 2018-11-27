@@ -1,0 +1,52 @@
+@import 'colors';
+
+.tech {
+  display: inline-flex;
+  flex-direction: column;
+  width: 200px;
+  text-align: center;
+  border: 1px solid $green;
+  border-radius: 6px;
+  padding: 120px 25px 80px;
+  position: relative;	
+  left: 150px;
+
+  /*
+  &:only-child {
+  	display: block;
+  	align-self: center;
+  	flex-wrap: 1;
+  }
+  */
+
+  .release,
+  .descripcion,
+  .nombre {
+  	position: relative;
+  	z-index: 2;
+  }
+
+  .release {
+  	top: 10px;
+  	font-weight: bold;
+  }
+
+  .descripcion {
+  	top: 20px;
+  	/* font-size: $text-medium; */
+  }
+
+  
+  &::after {
+  	content: '';
+  	background-color: $green;
+  	border-radius: 6px;
+  	position: relative;
+  	top: -205px;
+  	left: -15px;
+  	height: 300px;
+    width: 200px;
+    z-index: 1;
+  }
+  
+}
