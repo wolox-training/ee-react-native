@@ -1,0 +1,54 @@
+@import 'colors';
+
+.tech {
+  display: inline-flex;
+  flex-direction: column;
+  width: 200px;
+  height: 275px;
+  text-align: center;
+  border: 1px solid $green;
+  border-radius: 6px;
+  padding: 120px 25px 80px;
+  position: relative;	
+  margin-left: 150px;
+
+  .release,
+  .descripcion,
+  .nombre,
+  .tech-logo {
+  	position: relative;
+  	z-index: 2;
+  }
+
+  .release {
+  	top: 10px;
+  	font-weight: bold;
+  }
+
+  .descripcion {
+  	top: 20px;
+  	/* font-size: $text-medium; */
+  }
+
+  .tech-logo {
+    width: $tech-logo-size;
+    height: $tech-logo-size;
+    position: absolute;
+    top: 15px;
+    align-self: center;
+  }
+
+  
+  &::after {
+  	content: '';
+  	background-color: $green;
+  	border-radius: 6px;
+  	position: absolute;
+  	top: 10px;
+  	left: 10px;
+  	height: 275px;
+    width: 200px;
+    z-index: 1;
+  }
+  
+}
