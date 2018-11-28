@@ -4,65 +4,65 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: 150px;
+  margin-left: 170px;
   width: 1200px;
   margin-bottom: 100px;
 }
 
 .tech {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   width: 230px;
   height: 330px;
+  align-items: center; 
   text-align: center;
-  border: 1px solid $green;
+  background-color: $green;
   border-radius: 6px;
-  padding: 120px 25px 80px;
+  padding: 10px 25px;
   position: relative;	
   margin: 15px;
+  justify-content: center;
+  transition: top left 2s ease-in-out;
 
   .release,
   .descripcion,
   .nombre,
   .tech-logo {
   	position: relative;
-  	z-index: 2;
   }
-
-  .release {
-  	top: 15px;
-  	font-weight: bold;
-  }
-
-  .descripcion {
-  	top: 35px;
-  	/* font-size: $text-medium; */
-  }
-
-  .nombre {
-    top: 10px;
-    font-size: $text-medium;
-  }
-
+  
   .tech-logo {
     width: $tech-logo-size;
     height: $tech-logo-size;
-    position: absolute;
-    top: 20px;
-    align-self: center;
+    margin-bottom: 20px;
   }
 
+  .nombre {
+    font-size: $text-medium;
+    margin-bottom: 10px;
+  }
+
+  .release {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
   
-  &::after {
+  &::before {
   	content: '';
-  	background-color: $green;
+    border: 1px solid $green;
   	border-radius: 6px;
   	position: absolute;
-  	top: 10px;
-  	left: 10px;
+  	top: -10px;
+  	left: -10px;
   	height: 330px;
     width: 230px;
-    z-index: 1;
+    transition: top left 2s ease-in-out; 
+  }
+
+  &:hover::before {
+    top: 10px;
+    left: 10px;
+    transition: top left 2s ease-in-out;
   }
   
 }
