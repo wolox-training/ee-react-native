@@ -1,54 +1,85 @@
 @import 'colors';
 
+.tech-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 160px;
+  width: 1200px;
+  margin-bottom: 100px;
+}
+
 .tech {
+  background-color: $green;
   display: inline-flex;
   flex-direction: column;
-  width: 200px;
-  height: 275px;
+  width: 230px;
+  height: 330px;
   text-align: center;
-  border: 1px solid $green;
   border-radius: 6px;
   padding: 120px 25px 80px;
   position: relative;	
-  margin-left: 150px;
+  margin: 15px;
 
   .release,
   .descripcion,
   .nombre,
   .tech-logo {
-  	position: relative;
-  	z-index: 2;
+    position: relative;
+    z-index: 2;
   }
 
   .release {
-  	top: 10px;
-  	font-weight: bold;
+    top: 15px;
+    font-weight: bold;
   }
 
   .descripcion {
-  	top: 20px;
-  	/* font-size: $text-medium; */
+  	top: 35px;
+  }
+
+  .nombre {
+    top: 10px;
+    font-size: $text-medium;
   }
 
   .tech-logo {
     width: $tech-logo-size;
     height: $tech-logo-size;
     position: absolute;
-    top: 15px;
+    top: 20px;
     align-self: center;
   }
 
-  
+  &:hover:last-child { 
+    transform: translate(-10px,-10px);
+      transition: all 0.5s ease-in-out;
+      -webkit-transform: translate(-10px,-10px);
+      -webkit-transition: all 0.5s ease-in-out;
+  }
+
   &::after {
   	content: '';
-  	background-color: $green;
+  	border: 1px solid $green;
   	border-radius: 6px;
   	position: absolute;
-  	top: 10px;
-  	left: 10px;
-  	height: 275px;
-    width: 200px;
+  	top: -10px;
+  	left: -10px;
+  	height: 330px;
+    width: 230px;
     z-index: 1;
+
+    &:hover {
+      /*left: -10px;
+      top: -10px;*/
+      transform: translate(-100px,-100px);
+      transition: all 2s ease-in-out;
+      -webkit-transform: translate(-100,-100px);
+      -webkit-transition: all 2s ease-in-out;
+      /*transition: left 0.5s ease-out;
+      transition: top 0.5s ease-out;*/
+      /*-webkit-transition: left 0.5s ease-out;
+      -webkit-transition: top 0.5s ease-out;*/
+    }
   }
-  
 }

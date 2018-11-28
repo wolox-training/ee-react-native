@@ -2,19 +2,20 @@
 
 .title {
   display: flex;
-  padding: 50px 0 0 50px;
+  margin: 100px 0 0 70px;
+  font-size: $text-big;
 
   &::before {
     background: url("assets/triangle.svg");
     background-repeat: no-repeat;
-    background-size: 90px 70px;
+    background-size: $title-decoration-width $title-decoration-height;
     content: '';
     display: flex;
     position: relative;
-    left: 20px;
-    top: -26px;
-    height: 80px;
-    width: 80px;
+    left: 18px;
+    top: -33px;
+    height: $title-decoration-height;
+    width: $title-decoration-width;
     z-index: -1;
   }
 }
