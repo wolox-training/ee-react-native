@@ -4,26 +4,26 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-bottom: 100px;
   margin-left: 170px;
   width: 1200px;
-  margin-bottom: 100px;
 }
 
 .tech {
-  display: flex;
-  flex-direction: column;
-  width: 230px;
-  height: 330px;
-  align-items: center; 
-  text-align: center;
+  align-items: center;
   background-color: $green;
   border-radius: 6px;
-  padding: 10px 25px;
-  position: relative;	
-  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 330px;
   justify-content: center;
-  transition: top left 2s ease-in-out;
-
+  margin: 15px;
+  padding: 10px 25px;
+  position: relative;
+  text-align: center;
+  transition: top left 2s ease-in-out; 
+  width: 230px;
+  
   .release,
   .descripcion,
   .nombre,
@@ -32,9 +32,9 @@
   }
   
   .tech-logo {
-    width: $tech-logo-size;
-    height: $tech-logo-size;
     margin-bottom: 20px;
+    height: $tech-logo-size;
+    width: $tech-logo-size;
   }
 
   .nombre {
@@ -50,18 +50,18 @@
   &::before {
   	content: '';
     border: 1px solid $green;
-  	border-radius: 6px;
+    border-radius: 6px;
+    left: -10px;
+    height: 330px;
   	position: absolute;
-  	top: -10px;
-  	left: -10px;
-  	height: 330px;
+    top: -10px;
+    transition: top left 2s ease-in-out;
     width: 230px;
-    transition: top left 2s ease-in-out; 
   }
 
   &:hover::before {
-    top: 10px;
     left: 10px;
+    top: 10px;
     transition: top left 2s ease-in-out;
   }
   
