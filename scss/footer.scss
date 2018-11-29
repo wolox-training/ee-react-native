@@ -1,0 +1,27 @@
+.footer {
+  align-items: center;
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+  padding-top: 20px;
+  width: 100%;
+
+  .slogan {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: $text-big;
+  }
+
+  .logo-footer {
+    margin: 10px;
+  }
+
+  .copyright {
+    align-self: flex-end;
+    color: white;
+    font-size: $text-small;
+    margin-right: 20px;
+  }
+}
