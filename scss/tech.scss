@@ -14,12 +14,12 @@
   flex-direction: column;
   width: 230px;
   height: 330px;
-  align-items: center; 
+  align-items: center;
   text-align: center;
   background-color: $green;
   border-radius: 6px;
   padding: 10px 25px;
-  position: relative;	
+  position: relative;
   margin: 15px;
   justify-content: center;
   transition: top left 2s ease-in-out;
@@ -30,7 +30,7 @@
   .tech-logo {
   	position: relative;
   }
-  
+
   .tech-logo {
     width: $tech-logo-size;
     height: $tech-logo-size;
@@ -46,7 +46,7 @@
     font-weight: bold;
     margin-bottom: 20px;
   }
-  
+
   &::before {
   	content: '';
     border: 1px solid $green;
@@ -56,13 +56,12 @@
   	left: -10px;
   	height: 330px;
     width: 230px;
-    transition: top left 2s ease-in-out; 
+    transition: top left 2s ease-in-out;
   }
 
   &:hover::before {
-    top: 10px;
-    left: 10px;
-    transition: top left 2s ease-in-out;
+    transform: translate(20px,20px);
+    transition: transform 0.5s ease-in-out;
   }
-  
+
 }
