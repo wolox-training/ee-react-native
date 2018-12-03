@@ -1,4 +1,4 @@
-.footer {
+footer {
   align-items: center;
   background-color: $blue;
   display: flex;
@@ -9,8 +9,7 @@
   width: 100%;
 
   .slogan {
-    color: white;
-    font-family: 'Roboto', sans-serif;
+    color: $white;
     font-size: $text-big;
   }
 
@@ -20,7 +19,7 @@
 
   .copyright {
     align-self: flex-end;
-    color: white;
+    color: $white;
     font-size: $text-small;
     margin-right: 20px;
   }

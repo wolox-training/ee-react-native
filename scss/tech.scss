@@ -21,16 +21,16 @@
   padding: 10px 25px;
   position: relative;
   text-align: center;
-  transition: top left 2s ease-in-out; 
+  transition: top left 2s ease-in-out;
   width: 230px;
-  
+
   .release,
   .descripcion,
   .nombre,
   .tech-logo {
   	position: relative;
   }
-  
+
   .tech-logo {
     margin-bottom: 20px;
     height: $tech-logo-size;
@@ -46,7 +46,7 @@
     font-weight: bold;
     margin-bottom: 20px;
   }
-  
+
   &::before {
   	content: '';
     border: 1px solid $green;
@@ -64,5 +64,4 @@
     top: 10px;
     transition: top left 2s ease-in-out;
   }
-  
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 $nav-height: 70px;
 $nav-logo-height: 30px;
 $title-decoration-height: 90px;
@@ -7,3 +9,6 @@ $text-big: 24px;
 $text-medium: 16px;
 $text-small: 12px;
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
