@@ -24,3 +24,26 @@ footer {
     margin-right: 20px;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  footer {
+    height: 180px;
+    justify-content: flex-start;
+
+    .slogan {
+      font-size: 80%;
+      margin-top: 20px;
+    }
+
+    .logo-footer {
+      height: 30px;
+      margin: 15px 0 40px 0;
+      width: auto;
+    }
+
+    .copyright {
+      align-self: center;
+      font-size: 40%;
+    }
+  }
+}

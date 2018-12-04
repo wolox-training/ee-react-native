@@ -19,3 +19,10 @@
     z-index: -1;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .title {
+    margin: 150px 0 0 0;
+    justify-content: center;
+  }
+}

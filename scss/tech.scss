@@ -14,8 +14,6 @@
 
 .tech {
   align-content: center;
-  /*background-color: $green;*/
-  /*border-radius: 6px;*/
   display: grid;
   height: auto;
   justify-items: center;
@@ -68,4 +66,28 @@
 
 .fifth {
   grid-area: tech5;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tech-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+
+    .tech {
+      border-bottom: 2px solid $green;
+      padding-bottom: 30px;
+
+    &:last-child {
+      border: 0;
+    }
+    }
+  }
+
+  .first {
+    border-right: none;
+  }
 }
