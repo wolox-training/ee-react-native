@@ -2,7 +2,6 @@
 
 .tech-box {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   margin-left: 170px;
   width: 1200px;
@@ -22,14 +21,6 @@
   position: relative;
   margin: 15px;
   justify-content: center;
-  transition: top left 2s ease-in-out;
-
-  .release,
-  .descripcion,
-  .nombre,
-  .tech-logo {
-  	position: relative;
-  }
 
   .tech-logo {
     width: $tech-logo-size;
@@ -52,15 +43,13 @@
     border: 1px solid $green;
   	border-radius: 6px;
   	position: absolute;
-  	top: -10px;
-  	left: -10px;
+  	transform: translate(-10px, -10px);
   	height: 330px;
     width: 230px;
-    transition: top left 2s ease-in-out;
   }
 
   &:hover::before {
-    transform: translate(20px,20px);
+    transform: translate(10px, 10px);
     transition: transform 0.5s ease-in-out;
   }
 }
