@@ -23,9 +23,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .navbar {
-    .navbar-text {
+  .navbar .navbar-text {
       display: none;
-    }
   }
 }

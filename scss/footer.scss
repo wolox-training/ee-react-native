@@ -26,12 +26,12 @@ footer {
 }
 
 @media only screen and (max-width: 1024px) {
-  footer {
+  .footer {
     height: 180px;
     justify-content: flex-start;
 
     .slogan {
-      font-size: 80%;
+      font-size: $text-small;
       margin-top: 20px;
     }
 
@@ -43,7 +43,7 @@ footer {
 
     .copyright {
       align-self: center;
-      font-size: 40%;
+      font-size: $text-smaller;
     }
   }
 }
