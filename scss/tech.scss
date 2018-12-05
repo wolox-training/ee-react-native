@@ -7,9 +7,6 @@
   margin-bottom: 100px;
   margin-left: 230px;
   width: 750px;
-  grid-template-areas:
-    "tech1 tech2 tech3"
-    "tech1 tech4 tech5";
 }
 
 .tech {
@@ -51,21 +48,5 @@
 
 .first {
   border-right: 2px solid $green;
-  grid-area: tech1;
-}
-
-.second {
-  grid-area: tech2;
-}
-
-.third {
-  grid-area: tech3;
-}
-
-.fourth {
-  grid-area: tech4;
-}
-
-.fifth {
-  grid-area: tech5;
+  grid-row-end: span 2;
 }
