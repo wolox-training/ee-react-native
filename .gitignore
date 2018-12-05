@@ -5,6 +5,8 @@
 *.sass.map
 *.scss.map
 *.css
+COSAS QUE NO FUNCIONAN COMO QUISIERA
+.vscode/settings.json
 
 ## System ##
 .DS_Store
