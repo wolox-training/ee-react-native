@@ -48,3 +48,27 @@
     grid-row-end: span 2;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .tech-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+
+    .tech {
+      border-bottom: 2px solid $green;
+      padding-bottom: 30px;
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
+  .first {
+    border-right: none;
+  }
+}
