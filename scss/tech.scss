@@ -1,26 +1,24 @@
 @import 'colors';
 
 .tech-box {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 330px 330px;
   margin-bottom: 100px;
-  margin-left: 170px;
-  width: 1200px;
+  margin-left: 230px;
+  width: 750px;
 }
 
 .tech {
-  align-items: center;
-  background-color: $green;
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  height: 330px;
-  justify-content: center;
+  align-content: center;
+  display: grid;
+  height: auto;
+  justify-items: center;
   margin: 15px;
   padding: 10px 25px;
   position: relative;
   text-align: center;
-  width: 230px;
+  width: 231px;
 
   .tech-logo {
     margin-bottom: 20px;
@@ -38,19 +36,8 @@
     margin-bottom: 20px;
   }
 
-  &::before {
-  	content: '';
-    border: 1px solid $green;
-    border-radius: 6px;
-    height: 330px;
-  	position: absolute;
-  	transform: translate(-10px, -10px);
-  	height: 330px;
-    width: 230px;
-  }
-
-  &:hover::before {
-    transform: translate(10px, 10px);
-    transition: transform 0.5s ease-in-out;
+  &:first-child {
+    border-right: 2px solid $green;
+    grid-row-end: span 2;
   }
 }
