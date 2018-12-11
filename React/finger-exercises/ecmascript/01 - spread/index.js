@@ -1,10 +1,18 @@
 import { isArray } from './utils';
 
-export function min(array) {
-  if (isArray(array)) {
-    return Math.min(...array);
+export function min(...args) {
+  if (args.length === 0) {
+    return undefined;
   }
-  return Math.min(array);
+  let spread = [];
+  args.forEach(pos => {
+    if (isArray(pos)) {
+      spread = [...spread, ...pos];
+    } else {
+      spread.push(pos);
+    }
+  });
+  return Math.min(...spread);
 }
 
 export function copy() {
