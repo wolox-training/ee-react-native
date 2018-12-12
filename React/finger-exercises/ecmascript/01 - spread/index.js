@@ -15,6 +15,7 @@ export function min(...args) {
   return Math.min(...spread);
 }
 
-export function copy() {
-
+export function copy(element) {
+  const { ...copied } = element;
+  return copied;
 }
