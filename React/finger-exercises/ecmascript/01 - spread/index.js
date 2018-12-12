@@ -22,3 +22,7 @@ export function copy(element) {
   const { ...copied } = element;
   return copied;
 }
+
+export function reverseMerge(array1, array2) {
+  return [...array2, ...array1];
+}
