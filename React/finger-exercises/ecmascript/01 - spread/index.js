@@ -16,11 +16,14 @@ export function min(...args) {
 }
 
 export function copy(element) {
+  /*
   if (isArray(element)) {
     return [...element];
   }
   const { ...copied } = element;
   return copied;
+  */
+  return isArray(element) ? [...element] : { ...element };
 }
 
 export function reverseMerge(array1, array2) {
@@ -28,8 +31,7 @@ export function reverseMerge(array1, array2) {
 }
 
 export function filterAttribs(object) {
-  const { ...filtered } = object;
-  delete filtered.a;
-  delete filtered.b;
+  const { a, b, ...filtered } = object;
   return filtered;
+
 }
