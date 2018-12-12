@@ -16,6 +16,9 @@ export function min(...args) {
 }
 
 export function copy(element) {
+  if (isArray(element)) {
+    return [...element];
+  }
   const { ...copied } = element;
   return copied;
 }
