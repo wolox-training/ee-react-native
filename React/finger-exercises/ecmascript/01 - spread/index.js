@@ -26,3 +26,10 @@ export function copy(element) {
 export function reverseMerge(array1, array2) {
   return [...array2, ...array1];
 }
+
+export function filterAttribs(object) {
+  const { ...filtered } = object;
+  delete filtered.a;
+  delete filtered.b;
+  return filtered;
+}
