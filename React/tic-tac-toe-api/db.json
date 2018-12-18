@@ -1,0 +1,54 @@
+{
+  "matches": [
+    {
+      "player_one": "Tic",
+      "player_two": "Tac",
+      "winner": "tie",
+      "createdAt": "2018-10-09T20:29:26.126Z",
+      "id": 1
+    },
+    {
+      "player_one": "Tic",
+      "player_two": "Tac",
+      "winner": "player_one",
+      "createdAt": "2018-10-09T20:29:41.211Z",
+      "id": 2
+    },
+    {
+      "player_one": "Tic",
+      "player_two": "Tac",
+      "winner": "tie",
+      "createdAt": "2018-10-09T20:29:47.214Z",
+      "id": 3
+    },
+    {
+      "player_one": "Tic",
+      "player_two": "Tac",
+      "winner": "player_two",
+      "createdAt": "2018-10-09T20:30:16.659Z",
+      "id": 4
+    },
+    {
+      "player_one": "Tac",
+      "player_two": "Toe",
+      "winner": "tie",
+      "createdAt": "2018-10-09T20:30:19.167Z",
+      "id": 5
+    },
+    {
+      "player_one": "Tic",
+      "player_two": "Toe",
+      "winner": "tie",
+      "createdAt": "2018-10-09T20:46:10.506Z",
+      "id": 6
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@wolox.com.ar",
+      "password": "12345678",
+      "token": "1VvVIRQfAS"
+    }
+  ]
+}

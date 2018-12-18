@@ -1,0 +1,14 @@
+{
+  "name": "tic-tac-toe-api",
+  "version": "1.0.0",
+  "description": "tic tac toe training api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.14.0"
+  }
+}

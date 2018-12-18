@@ -12,6 +12,8 @@ export function delay(timeMS) {
   });
 }
 
-export function asyncDelay() {
-
+export async function asyncDelay(timeMS) {
+  const tempIni = Date.now();
+  const time = await setInterval(() => (Date.now() - tempIni), timeMS);
+  return time;
 }
