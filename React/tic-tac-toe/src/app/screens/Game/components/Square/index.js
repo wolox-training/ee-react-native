@@ -17,12 +17,14 @@ class Square extends Component {
     value: null
   };
 
+  setState = this.setState.bind(this);
+
   render() {
     return (
       <button
         type="button"
         className={styles.square}
-        onClick={() => this.setState({value: 'X'})}
+        onClick={this.setState({ value: 'X' })}
       >
         {this.state.value}
       </button>
@@ -31,7 +33,6 @@ class Square extends Component {
 }
 
 Square.propTypes = {
-  value: PropTypes.number
 };
 
 export default Square;
