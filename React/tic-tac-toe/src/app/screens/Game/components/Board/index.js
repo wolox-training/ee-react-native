@@ -6,14 +6,15 @@ import styles from './styles.module.scss';
 
 class Board extends Component {
   state = {
-    squares: Array(9).fill(null)
+    squares: Array(9).fill(null),
+    xIsNext: true
   };
 
   handleClick = (i) => () => {
     this.setState(prevState => {
       const squaresNew = [...prevState.squares];
-      squaresNew[i] = 'X';
-      return { squares: squaresNew };
+      squaresNew[i] = prevState.xIsNext ? 'X' : 'O';
+      return { squares: squaresNew, xIsNext: !prevState.xIsNext };
     });
   }
 
@@ -27,7 +28,7 @@ class Board extends Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     return (
       <React.Fragment>
         <div className={styles.status}>{status}</div>
