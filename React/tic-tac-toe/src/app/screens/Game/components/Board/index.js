@@ -7,10 +7,23 @@ import styles from './styles.module.scss';
 class Board extends Component {
   state = {
     squares: Array(9).fill(null)
+  };
+
+  handleClick = (i) => () => {
+    this.setState(prevState => {
+      const squaresNew = [...prevState.squares];
+      squaresNew[i] = 'X';
+      return { squares: squaresNew };
+    });
   }
 
   renderSquare(i) {
-    return <Square value={this.state.squares[i]} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={this.handleClick(i)}
+      />
+    );
   }
 
   render() {
