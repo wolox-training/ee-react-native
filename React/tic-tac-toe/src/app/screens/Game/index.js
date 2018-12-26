@@ -3,6 +3,35 @@ import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 
+const calculateWinner = (squares) => {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+};
+
+const isBoardFullfilled = (squares) => {
+  for (let i = 0; i < squares.length; i++) {
+    if (!squares[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
 class Game extends Component {
   state = {
     history: [{ squares: Array(9).fill(null) }],
@@ -16,19 +45,19 @@ class Game extends Component {
       const current = history[history.length - 1];
       const squaresNew = [...current.squares];
       if (calculateWinner(squaresNew) || squaresNew[i]) {
-        return;
+        return null;
       }
       squaresNew[i] = prevState.xIsNext ? 'X' : 'O';
       return {
         history: history.concat([{
-          squares: squaresNew,
+          squares: squaresNew
         }]),
         stepNumber: history.length,
         xIsNext: !prevState.xIsNext };
     });
   }
 
-  jumpTo(step) {
+  jumpTo = (step) => () => {
     this.setState({
       stepNumber: step,
       xIsNext: step % 2 === 0
@@ -47,7 +76,7 @@ class Game extends Component {
         : 'Go to game start';
       return (
         <li key={move}>
-          <button type="button" onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button type="button" onClick={this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -66,7 +95,7 @@ class Game extends Component {
         <div className={styles.gameBoard}>
           <Board
             squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
+            onClick={this.handleClick}
           />
         </div>
         <div className={styles.gameInfo}>
@@ -76,35 +105,6 @@ class Game extends Component {
       </div>
     );
   }
-}
-
-function calculateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
-    }
-  }
-  return null;
-}
-
-function isBoardFullfilled(squares) {
-  for (let i = 0; i < squares.length; i++) {
-    if (!squares[i]) {
-      return false;
-    }
-  }
-  return true;
 }
 
 export default Game;
