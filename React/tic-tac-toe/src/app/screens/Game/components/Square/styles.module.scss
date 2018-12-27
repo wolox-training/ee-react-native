@@ -1,0 +1,23 @@
+@import 'src/scss/colors.scss';
+
+$square-background: $white;
+$square-border: $dust-gray;
+
+.square {
+  background: $square-background;
+  border: 1px solid $square-border;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
