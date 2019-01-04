@@ -1,3 +1,5 @@
+import Immutable from 'seamless-immutable';
+
 import { actions } from './actions';
 
 const initialState = {
@@ -7,30 +9,65 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
+  let indice;
   switch (action.type) {
     case actions.GET_BOOKS: // TODO to implement the logic
-      [...state.books] = [...action.payload];
-      [...state.originalData] = [...action.payload];
-      return { ...state };
+      return Immutable(state).merge(
+        {
+          books: action.payload,
+          originalData: action.payload
+        },
+        {
+          deep: true
+        }
+      );
     case actions.ADD_TO_CART: // TODO to implement the logic
-      // [...state.bookSelected] = [...state.bookSelected, action.payload];
-      return { ...state };
+      return Immutable(state).merge(
+        {
+          bookSelected: [...state.bookSelected, action.payload]
+        },
+        {
+          deep: true
+        }
+      );
     case actions.ADD_ITEM: // TODO to implement the logic
-      return { ...state };
+      indice = state.bookSelected.findIndex(libro => libro.id === action.payload);
+      return Immutable(state).merge(
+        {
+          bookSelected: state.bookSelected.map((value, index) => {
+            if (index === indice) {
+              const valueMod = { id: value.id, name: value.name, quantity: value.quantity };
+              valueMod.quantity += 1;
+              return valueMod;
+            }
+            return value;
+          })
+        },
+        {
+          deep: true
+        }
+      );
     case actions.REMOVE_ITEM: // TODO to implement the logic
-      return { ...state };
+      indice = state.bookSelected.findIndex(libro => libro.id === action.payload);
+      return Immutable(state).merge(
+        {
+          bookSelected: state.bookSelected.filter((value, index) => index !== indice)
+        },
+        {
+          deep: true
+        }
+      );
     case actions.SEARCH_ITEM: // TODO to implement the logic
-      [...state.books] = [];
-      /*
-      for (let i = 0; i < state.originalData.length; i += 1) {
-        [...state.books] =
-          state.originalData[i].name.indexOf(action.payload) !== -1
-            ? [...state.books, state.originalData[i]]
-            : [...state.books];
-      }
-      */
-      [...state.books] = [...state.originalData.filter(data => data.name.indexOf(action.payload) !== -1)];
-      return { ...state };
+      return Immutable(state).merge(
+        {
+          books: state.originalData.filter(
+            data => data.name.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1
+          )
+        },
+        {
+          deep: true
+        }
+      );
     default:
       return state;
   }

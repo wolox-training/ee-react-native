@@ -35,10 +35,14 @@ class App extends Component {
   };
 
   // TODO to implement the dispatch
-  addItem = itemId => {};
+  addItem = itemId => {
+    store.dispatch(actions.addItem(itemId));
+  };
 
   // TODO to implement the dispatch
-  removeItem = itemId => {};
+  removeItem = itemId => {
+    store.dispatch(actions.removeItem(itemId));
+  };
 
   CONFIGURATION_BUTTON = {
     add: {
