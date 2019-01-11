@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { getLoggedUser } from '../../utils/cosas';
 
 class AuthorizedRoute extends React.Component {
-
   componentWillMount() {
     getLoggedUser();
   }
@@ -14,12 +13,14 @@ class AuthorizedRoute extends React.Component {
     const { component: Component, pending, logged, ...rest } = this.props;
 
     return (
-      <Route {...rest} render={props => {
+      <Route
+        {...rest} render = {props => {
         if (pending) return <div>Loading...</div>
         return logged
           ? <Component {...props} />
           : <Redirect to="/auth/login" />
-      }} />
+      }}
+      />
     );
   }
 }
@@ -30,3 +31,14 @@ const stateToProps = ({ loggedUserState }) => ({
 });
 
 export default connect(stateToProps)(AuthorizedRoute);
+
+/*
+handleRender = (props) => {
+    if (pending) {
+      return <div>Loading...</div>;
+    }
+    return logged
+      ? <Component {...props} />
+      : <Redirect to="/auth/login" />;
+};
+*/

@@ -11,7 +11,7 @@ import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
 import Login from './app/screens/Login';
-// El provider lo agregué yo
+// El provider lo agregué yo, y los routers
 const render = () => {
   ReactDOM.render(
     <AppContainer>
