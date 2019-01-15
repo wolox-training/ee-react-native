@@ -13,26 +13,22 @@ export const getLoggedUser = () => {
   }, 500);
 };
 
-export const login = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      store.dispatch({
-        type: 'SET_LOGGED_USER',
-        logged: true
-      });
-      resolve();
-    }, 500);
-  });
-};
+export const login = () => new Promise((resolve) => {
+  setTimeout(() => {
+    store.dispatch({
+      type: 'SET_LOGGED_USER',
+      logged: true
+    });
+    resolve();
+  }, 500);
+});
 
-export const logout = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      store.dispatch({
-        type: 'SET_LOGGED_USER',
-        logged: false
-      });
-      resolve();
-    }, 500);
-  });
-};
+export const logout = () => new Promise((resolve) => {
+  setTimeout(() => {
+    store.dispatch({
+      type: 'SET_LOGGED_USER',
+      logged: false
+    });
+    resolve();
+  }, 500);
+});

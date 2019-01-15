@@ -1,5 +1,14 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
+import loggedUserReducer from './login/reducer';
+
+const reducers = {
+  login: loggedUserReducer,
+  form: formReducer
+};
+
+const reducer = combineReducers(reducers);
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
-export default createStore(formReducer, composeEnhancers());
+export default createStore(reducer, composeEnhancers());

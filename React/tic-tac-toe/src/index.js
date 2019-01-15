@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Provider from 'react-redux';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import AuthorizedRoute from './app/components/AuthorizedRoute';
@@ -11,29 +11,26 @@ import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
 import Login from './app/screens/Login';
-// El provider lo agregué yo, y los routers
+// El provider lo agregué yo, y los routes
 const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
         <BrowserRouter>
-          <Fragment>
-            <Switch>
-              <Route path="/auth" component={Login} />
-              <AuthorizedRoute path="/app" component={App} />
-              <Redirect to="/auth" />
-            </Switch>
-          </Fragment>
+          <Switch>
+            <Route path="/auth" component={Login} />
+            <AuthorizedRoute path="/app" component={App} />
+            <Redirect to="/auth" />
+          </Switch>
         </BrowserRouter>
-        <App />
       </Provider>
     </AppContainer>,
     document.getElementById('root')
   );
 };
 
-// Render once
-render(App);
+// Render once. Le saqué el parametro App
+render();
 
 register();
 

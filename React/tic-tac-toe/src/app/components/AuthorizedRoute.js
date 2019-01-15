@@ -2,43 +2,38 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getLoggedUser } from '../../utils/cosas';
+import store from '../../redux/store';
 
 class AuthorizedRoute extends React.Component {
-  componentWillMount() {
-    getLoggedUser();
+  componentDidMount() {
+    store.dispatch({
+      type: 'GET_LOGGED_USER'
+    });
   }
+
+  renderear = ({ pending, logged, Component, ...rest }) => () => {
+    if (pending) {
+      return <div>Loading...</div>;
+    }
+    return logged
+      ? <Component {...rest} />
+      : <Redirect to="/auth/login" />;
+  };
 
   render() {
     const { component: Component, pending, logged, ...rest } = this.props;
 
     return (
       <Route
-        {...rest} render = {props => {
-        if (pending) return <div>Loading...</div>
-        return logged
-          ? <Component {...props} />
-          : <Redirect to="/auth/login" />
-      }}
+        {...rest} render={this.renderear({ pending, logged, Component, ...rest })}
       />
     );
   }
 }
 
-const stateToProps = ({ loggedUserState }) => ({
-  pending: loggedUserState.pending,
-  logged: loggedUserState.logged
+const mapStateToProps = ({ login }) => ({
+  pending: login.pending,
+  logged: login.logged
 });
 
-export default connect(stateToProps)(AuthorizedRoute);
-
-/*
-handleRender = (props) => {
-    if (pending) {
-      return <div>Loading...</div>;
-    }
-    return logged
-      ? <Component {...props} />
-      : <Redirect to="/auth/login" />;
-};
-*/
+export default connect(mapStateToProps)(AuthorizedRoute);
