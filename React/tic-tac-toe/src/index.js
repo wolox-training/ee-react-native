@@ -11,6 +11,12 @@ import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
 import Login from './app/screens/Login';
+import { saveState } from './utils/localStorage';
+
+// Para persistir el estado en el storage del browser
+store.subscribe(() => {
+  saveState(store.getState());
+});
 // El provider lo agregué yo, y los routes
 const render = () => {
   ReactDOM.render(

@@ -1,40 +1,29 @@
-import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import React, { Component } from 'react';
 
 import store from '../../../redux/store';
 
-import { customInput } from './fields';
-import { required, minLength, validEmail } from './validation';
-// import './styles.css';
+import LoginForm from './components/LoginForm';
 
-const handleSubmit = ({ history }) => () => {
-  store.dispatch({
-    type: 'SET_LOGGED_USER',
-    logged: true
-  });
-  history.push('/app');
-};
-
+// Separé el container del presentacional. Este es el container se supone
+// El form no me toma los errores. Muestra los mensajes de error pero hasta ahi nomas
+/*
 const Login = ({ history }) => (
-  <form onSubmit={handleSubmit({ history })}>
-    <Field
-      name="email"
-      component={customInput}
-      type="text"
-      label="E-mail"
-      validate={[required, validEmail]}
-    />
-    <Field
-      name="password"
-      component={customInput}
-      type="password"
-      label="Password"
-      validate={[required, minLength]}
-    />
-    <button type="submit">Sign In</button>
-  </form>
+  <LoginForm onSubmit={handleSubmit} />
 );
+*/
 
-export default reduxForm({
-  form: 'loginForm'
-})(Login);
+class Login extends Component {
+  handleSubmit = () => {
+    store.dispatch({
+      type: 'SET_LOGGED_USER',
+      logged: true
+    });
+    this.props.history.push('/app');
+  };
+
+  render() {
+    return <LoginForm onSubmit={this.handleSubmit} />;
+  }
+}
+
+export default Login;
