@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
 
 import store from '../../../redux/store';
+import routes from '../../../constants/routes';
+import actions from '../../../redux/login/actions';
 
-import LoginForm from './components/LoginForm';
-
-// Separé el container del presentacional. Este es el container se supone
-// El form no me toma los errores. Muestra los mensajes de error pero hasta ahi nomas
-/*
-const Login = ({ history }) => (
-  <LoginForm onSubmit={handleSubmit} />
-);
-*/
+import LoginForm from './layout';
 
 class Login extends Component {
   handleSubmit = () => {
-    store.dispatch({
-      type: 'SET_LOGGED_USER',
-      logged: true
-    });
-    this.props.history.push('/app');
+    store.dispatch(actions.setLoggedUser(true));
+    this.props.history.push(routes.APP);
   };
 
   render() {

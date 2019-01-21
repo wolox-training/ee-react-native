@@ -1,20 +1,30 @@
+import immutable from 'seamless-immutable';
+
+import { actions } from './actions';
+
 const initialState = {
   pending: true,
   logged: false
 };
 
-const loggedUserReducer = (state = initialState, action) => {
-  if (action.type === 'GET_LOGGED_USER') {
-    return { ...state, pending: false };
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actions.GET_LOGGED_USER:
+      return immutable(state).merge(
+        {
+          pending: false
+        }
+      );
+    case actions.SET_LOGGED_USER:
+      return immutable(state).merge(
+        {
+          pending: false,
+          logged: action.logged
+        }
+      );
+    default:
+      return state;
   }
-
-  if (action.type === 'SET_LOGGED_USER') {
-    return { ...state,
-      pending: false,
-      logged: action.logged };
-  }
-
-  return state;
 };
 
-export default loggedUserReducer;
+export default reducer;
