@@ -27,6 +27,7 @@
     "redux-form": "^8.1.0",
     "redux-recompose": "^2.1.0",
     "redux-thunk": "^2.3.0",
+    "seamless-immutable": "^7.1.4",
     "wolox-equalizer": "0.0.3"
   },
   "scripts": {

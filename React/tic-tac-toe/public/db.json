@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@wolox.com.ar",
+      "password": "12345678",
+      "token": "1VvVIRQfAS"
+    },
+    {
+      "id": 2,
+      "email": "hola@dominio.com",
+      "password": "passtrasenia",
+      "token": "2TtTDMASxND"
+    }
+  ]
+}

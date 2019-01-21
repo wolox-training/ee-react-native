@@ -11,22 +11,23 @@ import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
 import Login from './app/screens/Login';
-import { saveState } from './utils/localStorage';
+import { saveState } from './services/StorageService';
+import routes from './constants/routes';
 
-// Para persistir el estado en el storage del browser
 store.subscribe(() => {
   saveState(store.getState());
 });
-// El provider lo agregué yo, y los routes
+
 const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route path="/auth" component={Login} />
-            <AuthorizedRoute path="/app" component={App} />
-            <Redirect to="/auth" />
+            <Route path={routes.AUTH} component={Login} />
+            <Redirect from={routes.LOGIN_SHORT} to={routes.LOGIN} />
+            <AuthorizedRoute path={routes.APP} component={App} />
+            <Redirect to={routes.AUTH} />
           </Switch>
         </BrowserRouter>
       </Provider>
@@ -35,7 +36,6 @@ const render = () => {
   );
 };
 
-// Render once. Le saqué el parametro App
 render();
 
 register();
@@ -43,6 +43,6 @@ register();
 // Webpack Hot Module Replacement API
 if (module.hot) {
   module.hot.accept('./app', () => {
-    render(App);
+    render();
   });
 }

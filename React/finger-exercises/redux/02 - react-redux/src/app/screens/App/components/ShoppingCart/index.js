@@ -42,12 +42,9 @@ class ShoppingCart extends PureComponent {
   }
 }
 
-// Esto lo agregué yo. Igual que el connect
-function mapStateToProps(state) {
-  return {
-    bookSelected: state.bookSelected
-  };
-}
+const mapStateToProps = state => ({
+  bookSelected: state.bookSelected
+});
 
 ShoppingCart.propTypes = {
   data: arrayOf(bookSelectedPropType).isRequired,
