@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import store from '../../../redux/store';
 import routes from '../../../constants/routes';
 import actions from '../../../redux/login/actions';
 
@@ -8,7 +9,7 @@ import LoginForm from './layout';
 
 class Login extends Component {
   handleSubmit = () => {
-    store.dispatch(actions.setLoggedUser(true));
+    this.props.setLoggedUser(true);
     this.props.history.push(routes.APP);
   };
 
@@ -17,4 +18,13 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = {
+  setLoggedUser: actions.setLoggedUser
+};
+
+Login.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any),
+  setLoggedUser: PropTypes.func
+};
+
+export default connect(null, mapDispatchToProps)(Login);
