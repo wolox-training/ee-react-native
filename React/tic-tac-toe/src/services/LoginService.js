@@ -1,4 +1,5 @@
 // import api from '../config/api';
+// Como hago en este? No puedo usar connect porque no es un componente presentacional :/
 import store from '../redux/store';
 import actions from '../redux/login/actions';
 

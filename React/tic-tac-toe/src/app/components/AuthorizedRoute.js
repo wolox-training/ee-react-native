@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import store from '../../redux/store';
 import routes from '../../constants/routes';
 import actions from '../../redux/login/actions';
 
 class AuthorizedRoute extends Component {
   componentDidMount() {
-    store.dispatch(actions.getLoggedUser());
+    this.props.getLoggedUser();
   }
 
   authorizeAndRender = ({ pending, logged, ComponentRoute, ...rest }) => () => {
@@ -31,9 +30,13 @@ class AuthorizedRoute extends Component {
   }
 }
 
-const mapStateToProps = ({ login }) => ({
-  pending: login.pending,
-  logged: login.logged
+const mapStateToProps = (state) => ({
+  pending: state.login.pending,
+  logged: state.login.logged
 });
 
-export default connect(mapStateToProps)(AuthorizedRoute);
+const mapDispatchToProps = {
+  getLoggedUser: actions.getLoggedUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthorizedRoute);
