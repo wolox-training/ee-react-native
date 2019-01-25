@@ -7,7 +7,7 @@ export const loadState = () => {
   }
 };
 
-export const saveState = (state) => {
+export const saveState = state => {
   const serializedState = JSON.stringify(state);
   sessionStorage.setItem('credentials', serializedState);
 };
