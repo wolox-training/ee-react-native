@@ -4,7 +4,7 @@ import classNames from 'classnames';
 class CustomInput extends Component {
   getValidityClassName = function getValidityClassName(meta) {
     if (meta.active) {
-      return 'undefined';
+      return '';
     }
     if (meta.touched && meta.invalid) {
       return 'invalid';
@@ -12,7 +12,7 @@ class CustomInput extends Component {
     if (meta.touched && meta.valid) {
       return 'valid';
     }
-    return 'undefined';
+    return '';
   };
 
   render() {
@@ -20,7 +20,6 @@ class CustomInput extends Component {
       <div
         className={classNames(
           'custom-input-container',
-          { 'flex-row-reverse': this.props.type === 'checkbox' },
           { dirty: this.props.meta.dirty },
           this.getValidityClassName(this.props.meta)
         )}
@@ -28,7 +27,7 @@ class CustomInput extends Component {
         <input {...this.props.input} type={this.props.type} />
         <label>{this.props.label}</label>
         {this.props.meta.error && this.props.meta.touched && !this.props.meta.active && (
-          <span className="feedback-text error-text">{this.props.meta.error}</span>
+          <span className="error-text">{this.props.meta.error}</span>
         )}
       </div>
     );

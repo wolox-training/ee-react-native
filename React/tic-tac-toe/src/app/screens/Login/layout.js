@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 import { required, validEmail, minLength } from '../../../utils/validation';
 
 import CustomInput from './components/fields';
-import names from './components/fieldNames';
-import labels from './components/fieldLabels';
+import { NAME_EMAIL, NAME_PASS } from './components/fieldNames';
 
 import './styles.css';
 
@@ -14,17 +13,17 @@ const LoginForm = function LoginForm ({ handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <Field
-        name={names.EMAIL}
+        name={NAME_EMAIL}
         component={CustomInput}
         type="text"
-        label={labels.EMAIL}
+        label="E-mail"
         validate={[required, validEmail]}
       />
       <Field
-        name={names.PASS}
+        name={NAME_PASS}
         component={CustomInput}
         type="password"
-        label={labels.PASS}
+        label="Password"
         validate={[required, minLength]}
       />
       <button type="submit">Sign In</button>
@@ -33,7 +32,7 @@ const LoginForm = function LoginForm ({ handleSubmit }) {
 };
 
 LoginForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default reduxForm({
