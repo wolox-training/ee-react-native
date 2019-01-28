@@ -3,7 +3,6 @@ import { login as loginService } from '../../services/LoginService';
 
 export const actions = stringArrayToObject(
   [
-    'GET_LOGGED_USER',
     'LOGIN_REQUEST',
     'LOGIN_SUCCESS',
     'LOGIN_FAILURE'
@@ -12,9 +11,6 @@ export const actions = stringArrayToObject(
 );
 
 const actionCreators = {
-  getLoggedUser: () => ({
-    type: actions.GET_LOGGED_USER
-  }),
   login: (user) => async dispatch => {
     dispatch({ type: actions.LOGIN_REQUEST });
     const response = await loginService({ email: user.email });
