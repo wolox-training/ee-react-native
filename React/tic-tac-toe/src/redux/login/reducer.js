@@ -4,14 +4,16 @@ import { actions } from './actions';
 
 const initialState = {
   pending: false,
-  logged: false
+  logged: false,
+  authError: ''
 };
 
 const reducer = (state = immutable(initialState), action) => {
   switch (action.type) {
     case actions.LOGIN_REQUEST:
       return immutable(state).merge({
-        pending: true
+        pending: true,
+        authError: ''
       });
     case actions.LOGIN_SUCCESS:
       return immutable(state).merge({
@@ -21,7 +23,8 @@ const reducer = (state = immutable(initialState), action) => {
     case actions.LOGIN_FAILURE:
       return immutable(state).merge({
         logged: false,
-        pending: false
+        pending: false,
+        authError: action.payload
       });
     default:
       return state;

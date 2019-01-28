@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { formValueSelector } from 'redux-form';
@@ -16,7 +16,12 @@ class Login extends Component {
   };
 
   render() {
-    return <LoginForm onSubmit={this.handleSubmit} />;
+    return (
+      <Fragment>
+        <div className="auth-error">{this.props.authError}</div>
+        <LoginForm onSubmit={this.handleSubmit} />
+      </Fragment>
+    );
   }
 }
 
@@ -24,7 +29,8 @@ const selector = formValueSelector('loginForm');
 
 const mapStateToProps = state => ({
   email: selector(state, NAME_EMAIL),
-  pass: selector(state, NAME_PASS)
+  pass: selector(state, NAME_PASS),
+  authError: state.login.authError
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -35,6 +41,7 @@ const mapDispatchToProps = dispatch => ({
 Login.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   login: PropTypes.func.isRequired,
+  authError: PropTypes.string,
   email: PropTypes.string,
   pass: PropTypes.string
 };
