@@ -7,10 +7,11 @@ import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import AuthorizedRoute from './app/components/AuthorizedRoute';
 import store from './redux/store';
 import App from './app';
+import Login from './app/screens/Login';
+import Profile from './app/screens/Profile';
 import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
-import Login from './app/screens/Login';
 import { saveState } from './services/StorageService';
 import routes from './constants/routes';
 import { history } from './history';
@@ -27,6 +28,7 @@ const render = () => {
           <Switch>
             <Route path={routes.AUTH} component={Login} />
             <Redirect from={routes.LOGIN_SHORT} to={routes.LOGIN} />
+            <AuthorizedRoute path={routes.PROFILE} component={Profile} />
             <AuthorizedRoute path={routes.APP} component={App} />
             <Redirect to={routes.AUTH} />
           </Switch>

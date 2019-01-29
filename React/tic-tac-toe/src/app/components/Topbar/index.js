@@ -3,16 +3,23 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import LoginActions from '../../../redux/login/actions';
+import routes from '../../../constants/routes';
+import { history } from '../../../history';
 
 class Topbar extends Component {
-  handleClick = () => {
+  handleLogout = () => {
     this.props.logout();
+  }
+
+  handleRedirect = () => {
+    history.push(routes.PROFILE);
   }
 
   render() {
     return (
       <div className="topbar">
-        <button type="button" onClick={this.handleClick}>Logout</button>
+        <button type="button" onClick={this.handleLogout}>Logout</button>
+        <button type="button" onClick={this.handleRedirect}>Other view</button>
       </div>
     );
   }
