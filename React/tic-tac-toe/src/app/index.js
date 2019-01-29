@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 
 import Game from './screens/Game';
+import Topbar from './components/Topbar';
 
 import '../scss/application.scss';
 
 function App() {
-  return <Game />;
+  return (
+    <Fragment>
+      <Topbar />
+      <Game />
+    </Fragment>
+  );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  logged: state.login.logged
+});
+
+export default connect(mapStateToProps)(App);

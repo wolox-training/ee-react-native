@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { formValueSelector } from 'redux-form';
 
-import routes from '../../../constants/routes';
+// import routes from '../../../constants/routes';
 import LoginActions from '../../../redux/login/actions';
 
 import LoginForm from './layout';
@@ -12,7 +12,6 @@ import { NAME_EMAIL, NAME_PASS } from './components/fieldNames';
 class Login extends Component {
   handleSubmit = () => {
     this.props.login({ email: this.props.email, password: this.props.pass });
-    this.props.history.push(routes.APP);
   };
 
   render() {
@@ -34,12 +33,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(LoginActions.login(user)),
-  getLoggedUser: () => dispatch(LoginActions.getLoggedUser())
+  login: user => dispatch(LoginActions.login(user))
 });
 
 Login.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
   login: PropTypes.func.isRequired,
   authError: PropTypes.string,
   email: PropTypes.string,

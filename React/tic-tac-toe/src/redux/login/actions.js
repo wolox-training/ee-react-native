@@ -1,11 +1,14 @@
 import { stringArrayToObject } from '../../utils/stringUtils';
 import { login as loginService } from '../../services/LoginService';
+import { history } from '../../history';
+import routes from '../../constants/routes';
 
 export const actions = stringArrayToObject(
   [
     'LOGIN_REQUEST',
     'LOGIN_SUCCESS',
-    'LOGIN_FAILURE'
+    'LOGIN_FAILURE',
+    'LOGOUT'
   ],
   '@@LOGIN'
 );
@@ -18,9 +21,9 @@ const actionCreators = {
       if (response.data.length > 0) {
         if (response.data[0].password === user.password) {
           dispatch({
-            type: actions.LOGIN_SUCCESS,
-            payload: response.data
+            type: actions.LOGIN_SUCCESS
           });
+          history.push(routes.APP);
         } else {
           dispatch({
             type: actions.LOGIN_FAILURE,
@@ -39,6 +42,10 @@ const actionCreators = {
         payload: 'Connection error'
       });
     }
+  },
+  logout: () => dispatch => {
+    dispatch({ type: actions.LOGOUT });
+    history.push(routes.LOGIN);
   }
 };
 

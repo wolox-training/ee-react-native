@@ -26,6 +26,11 @@ const reducer = (state = immutable(initialState), action) => {
         pending: false,
         authError: action.payload
       });
+    case actions.LOGOUT:
+      return immutable(state).merge({
+        logged: false,
+        pending: false
+      });
     default:
       return state;
   }
