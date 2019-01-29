@@ -15,7 +15,5 @@ const persistedState = loadState();
 
 const reducer = combineReducers(reducers);
 
-// const thunkEnhancer = applyMiddleware(thunk);
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
 export default createStore(reducer, persistedState, composeEnhancers(applyMiddleware(thunk)));
