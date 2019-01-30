@@ -39,9 +39,10 @@
     "deploy": "react-app-rewired build ",
     "lint": "./node_modules/eslint/bin/eslint.js src",
     "lint-fix": "./node_modules/eslint/bin/eslint.js src --fix",
-    "lint-diff": "git diff --diff-filter=ACM --name-only --cached --relative | grep \\.js$ | xargs eslint",
+    "lint-diff": "./node_modules/.bin/eslint .",
     "precommit": "npm run lint-diff",
     "storybook": "start-storybook -p 9001 -c .storybook"
+
   },
   "eslintConfig": {
     "extends": "react-app"
