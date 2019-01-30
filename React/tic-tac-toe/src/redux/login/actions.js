@@ -2,6 +2,7 @@ import { stringArrayToObject } from '../../utils/stringUtils';
 import { login as loginService } from '../../services/LoginService';
 import { history } from '../../history';
 import routes from '../../constants/routes';
+import ScreenActions from '../screen/actions';
 
 export const actions = stringArrayToObject(
   [
@@ -23,6 +24,7 @@ const actionCreators = {
           dispatch({
             type: actions.LOGIN_SUCCESS
           });
+          dispatch(ScreenActions.setDefaultScreen());
           history.push(routes.APP);
         } else {
           dispatch({
