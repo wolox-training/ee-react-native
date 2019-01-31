@@ -8,7 +8,7 @@ import LoginActions from '../../../redux/login/actions';
 import LoginForm from './layout';
 
 class Login extends Component {
-  handleSubmit = (params) => {
+  handleSubmit = params => {
     this.props.login({ email: params.email, password: params.password });
     this.props.history.push(routes.APP);
   };
