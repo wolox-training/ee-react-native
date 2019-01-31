@@ -29,6 +29,7 @@
     "redux-recompose": "^2.1.0",
     "redux-thunk": "^2.3.0",
     "seamless-immutable": "^7.1.4",
+    "shortid": "^2.2.14",
     "wolox-equalizer": "^0.0.3"
   },
   "scripts": {
@@ -42,7 +43,6 @@
     "lint-diff": "./node_modules/.bin/eslint .",
     "precommit": "npm run lint-diff",
     "storybook": "start-storybook -p 9001 -c .storybook"
-
   },
   "eslintConfig": {
     "extends": "react-app"

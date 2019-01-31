@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
@@ -36,7 +37,7 @@ const isBoardFullfilled = (squares) => {
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(ARRAY_SIZE).fill(null) }],
+    history: [{ squares: Array(ARRAY_SIZE).fill(null), id: shortid.generate() }],
     stepNumber: 0,
     xIsNext: true
   };
@@ -77,8 +78,7 @@ class Game extends Component {
         ? `Go to move #${move}`
         : 'Go to game start';
       return (
-        // eslint-disable-next-line react/no-array-index-key
-        <li key={move}>
+        <li key={move.id}>
           <button type="button" onClick={this.jumpTo(move)}>{desc}</button>
         </li>
       );

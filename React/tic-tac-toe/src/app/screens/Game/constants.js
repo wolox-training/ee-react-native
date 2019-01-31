@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 export const WINNER_MOVE_1 = [0, 1, 2];
 export const WINNER_MOVE_2 = [3, 4, 5];
 export const WINNER_MOVE_3 = [6, 7, 8];

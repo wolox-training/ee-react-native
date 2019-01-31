@@ -41,7 +41,6 @@ const Profile = function Profile() {
             </ul>
           </div>
         </div>
-
       </div>
     </Fragment>
   );
