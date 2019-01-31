@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import routes from '../../../constants/routes';
 import LoginActions from '../../../redux/login/actions';
 
 import LoginForm from './layout';

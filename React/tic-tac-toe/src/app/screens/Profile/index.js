@@ -1,10 +1,16 @@
 import React, { Fragment } from 'react';
+import shortid from 'shortid';
 
 import Topbar from '../../components/Topbar';
 import './styles.css';
 import logo from '../../assets/tictactoe.jpg';
 
 const Profile = function Profile() {
+  const numbers = [1, 2, 3, 4];
+  let matchNumber = 359;
+  const imageMatchListItems = numbers.map(number => <li key={shortid.generate()} className={`match-img-${number}`} />);
+  const matchListItems = numbers.map(number => <li key={shortid.generate()} className={`match-${number}`}>{`Match #${matchNumber--}`}</li>);
+
   return (
     <Fragment>
       <Topbar />
@@ -28,16 +34,10 @@ const Profile = function Profile() {
           <div className="container-matches">
             <h1 className="last-matches-title">Last matches</h1>
             <ul className="matches-images">
-              <li className="match-img-1" />
-              <li className="match-img-2" />
-              <li className="match-img-3" />
-              <li className="match-img-4" />
+              {imageMatchListItems}
             </ul>
             <ul className="matches-list">
-              <li className="match-1">Match #359</li>
-              <li className="match-2">Match #358</li>
-              <li className="match-3">Match #357</li>
-              <li className="match-4">Match #356</li>
+              {matchListItems}
             </ul>
           </div>
         </div>
