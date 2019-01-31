@@ -15,8 +15,8 @@ function App() {
   );
 }
 
-const mapStateToProps = state => ({
-  logged: state.login.logged
+const mapStateToProps = store => ({
+  logged: store.login.logged
 });
 
 export default connect(mapStateToProps)(App);

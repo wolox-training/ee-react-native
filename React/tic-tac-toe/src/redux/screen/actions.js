@@ -12,7 +12,7 @@ const actionCreators = {
   setDefaultScreen: () => dispatch => {
     dispatch({ type: actions.SET_DEFAULT_SCREEN });
   },
-  setScreen: (screen) => dispatch => {
+  setScreen: screen => dispatch => {
     dispatch({
       type: actions.SET_SCREEN,
       payload: screen
