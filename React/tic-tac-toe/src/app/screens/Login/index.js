@@ -2,13 +2,12 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import routes from '../../../constants/routes';
 import LoginActions from '../../../redux/login/actions';
 
 import LoginForm from './layout';
 
 class Login extends Component {
-  handleSubmit = (params) => {
+  handleSubmit = params => {
     this.props.login({ email: params.email, password: params.password });
   };
 
@@ -22,8 +21,8 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  authError: state.login.authError
+const mapStateToProps = store => ({
+  authError: store.login.authError
 });
 
 const mapDispatchToProps = dispatch => ({

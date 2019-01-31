@@ -5,7 +5,7 @@ import routes from '../../constants/routes';
 import { actions } from './actions';
 
 const initialState = {
-  screen: ''
+  screen: routes.APP
 };
 
 const reducer = (state = immutable(initialState), action) => {

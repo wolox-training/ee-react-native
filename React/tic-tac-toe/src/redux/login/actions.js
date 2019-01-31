@@ -2,7 +2,6 @@ import { stringArrayToObject } from '../../utils/stringUtils';
 import { login as loginService } from '../../services/LoginService';
 import { history } from '../../history';
 import routes from '../../constants/routes';
-import ScreenActions from '../screen/actions';
 
 export const actions = stringArrayToObject(
   [
@@ -14,30 +13,31 @@ export const actions = stringArrayToObject(
   '@@LOGIN'
 );
 
+const privateActionCreators = {
+  checkResponseValidity: (user, data) => dispatch => {
+    if (data !== undefined && data.password === user.password && data.email === user.email) {
+      dispatch({
+        type: actions.LOGIN_SUCCESS
+      });
+      history.push(routes.APP);
+    } else {
+      dispatch(privateActionCreators.getLoginFailure(data));
+    }
+  },
+  getLoginFailure: data => dispatch => {
+    dispatch({
+      type: actions.LOGIN_FAILURE,
+      payload: data === undefined ? 'Email not registered yet' : 'Password is incorrect'
+    });
+  }
+};
+
 const actionCreators = {
-  login: (user) => async dispatch => {
+  login: user => async dispatch => {
     dispatch({ type: actions.LOGIN_REQUEST });
     const response = await loginService({ email: user.email });
     if (response.ok) {
-      if (response.data.length > 0) {
-        if (response.data[0].password === user.password) {
-          dispatch({
-            type: actions.LOGIN_SUCCESS
-          });
-          dispatch(ScreenActions.setDefaultScreen());
-          history.push(routes.APP);
-        } else {
-          dispatch({
-            type: actions.LOGIN_FAILURE,
-            payload: 'Password is incorrect'
-          });
-        }
-      } else {
-        dispatch({
-          type: actions.LOGIN_FAILURE,
-          payload: 'Email not registered yet'
-        });
-      }
+      dispatch(privateActionCreators.checkResponseValidity(user, response.data[0]));
     } else {
       dispatch({
         type: actions.LOGIN_FAILURE,

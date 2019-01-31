@@ -42,8 +42,8 @@ class ShoppingCart extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  bookSelected: state.bookSelected
+const mapStateToProps = store => ({
+  bookSelected: store.bookSelected
 });
 
 ShoppingCart.propTypes = {
