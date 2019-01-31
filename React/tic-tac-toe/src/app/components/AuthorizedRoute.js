@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import routes from '../../constants/routes';
-import LoginActions from '../../redux/login/actions';
 
 class AuthorizedRoute extends Component {
   authorizeAndRender = ({ pending, logged, ComponentRoute, ...rest }) => () => {
@@ -26,13 +25,9 @@ class AuthorizedRoute extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  pending: state.login.pending,
-  logged: state.login.logged
+const mapStateToProps = store => ({
+  pending: store.login.pending,
+  logged: store.login.logged
 });
 
-const mapDispatchToProps = dispatch => ({
-  getLogged: () => dispatch(LoginActions.getLoggedUser())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(AuthorizedRoute);
+export default connect(mapStateToProps)(AuthorizedRoute);
