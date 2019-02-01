@@ -29,7 +29,7 @@ const render = () => {
             <Route path={routes.AUTH} component={Login} />
             <Redirect from={routes.LOGIN_SHORT} to={routes.LOGIN} />
             <AuthorizedRoute path={routes.PROFILE} component={Profile} />
-            <AuthorizedRoute path={routes.APP} component={App} />
+            <Route path={routes.APP} component={App} />
             <Redirect to={routes.AUTH} />
           </Switch>
         </Router>
