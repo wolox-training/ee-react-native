@@ -6,7 +6,7 @@ const Profile = function Profile() {
   return (
     <Fragment>
       <Topbar />
-      <div>I am a not implemented component.</div>
+      {/* <div> TODO: to implement a profile screen </div> */}
     </Fragment>
   );
 };
