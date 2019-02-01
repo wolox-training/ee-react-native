@@ -11,19 +11,15 @@ export const actions = stringArrayToObject(
 );
 
 const privateActionCreators = {
-  checkResponseValidity: (user, data) => dispatch => {
-    if (data !== undefined && data.password === user.password && data.email === user.email) {
-      dispatch({
-        type: actions.LOGIN_SUCCESS
-      });
-    } else {
-      dispatch(privateActionCreators.getLoginFailure(data));
-    }
+  loginSuccess: () => dispatch => {
+    dispatch({
+      type: actions.LOGIN_SUCCESS
+    });
   },
-  getLoginFailure: data => dispatch => {
+  loginFailure: problem => dispatch => {
     dispatch({
       type: actions.LOGIN_FAILURE,
-      payload: data === undefined ? 'Email not registered yet' : 'Password is incorrect'
+      payload: problem
     });
   }
 };
@@ -31,14 +27,11 @@ const privateActionCreators = {
 const actionCreators = {
   login: user => async dispatch => {
     dispatch({ type: actions.LOGIN_REQUEST });
-    const response = await loginService({ email: user.email });
+    const response = await loginService(user);
     if (response.ok) {
-      dispatch(privateActionCreators.checkResponseValidity(user, response.data[0]));
+      dispatch(privateActionCreators.loginSuccess());
     } else {
-      dispatch({
-        type: actions.LOGIN_FAILURE,
-        payload: 'Connection error'
-      });
+      dispatch(privateActionCreators.loginFailure(response.problem));
     }
   }
 };

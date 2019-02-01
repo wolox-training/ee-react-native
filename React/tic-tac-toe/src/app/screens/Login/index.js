@@ -23,8 +23,8 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  authError: state.login.authError
+const mapStateToProps = store => ({
+  authError: store.login.authError
 });
 
 const mapDispatchToProps = dispatch => ({
