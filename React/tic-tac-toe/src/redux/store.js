@@ -1,7 +1,7 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
-import { fetchMiddleware, configureMergeState } from 'redux-recompose';
+import { fetchMiddleware /* , configureMergeState */ } from 'redux-recompose';
 
 
 import { loadState } from '../services/StorageService';

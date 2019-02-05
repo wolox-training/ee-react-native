@@ -11,6 +11,7 @@ import './styles.css';
 
 class Topbar extends Component {
   handleLogout = () => {
+    this.props.setDefaultScreen();
     this.props.logout();
   }
 
@@ -41,13 +42,15 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(LoginActions.logout()),
-  setScreen: screen => dispatch(ScreenActions.setScreen(screen))
+  setScreen: screen => dispatch(ScreenActions.setScreen(screen)),
+  setDefaultScreen: () => dispatch(ScreenActions.setDefaultScreen())
 });
 
 Topbar.propTypes = {
   logout: PropTypes.func.isRequired,
   setScreen: PropTypes.func.isRequired,
-  screen: PropTypes.string
+  screen: PropTypes.string,
+  setDefaultScreen: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Topbar);

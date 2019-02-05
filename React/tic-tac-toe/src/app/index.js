@@ -19,6 +19,7 @@ function App() {
 
 const mapStateToProps = store => ({
   logged: store.login.logged,
+  user: store.login.user,
   userLoading: store.login.userLoading
 });
 

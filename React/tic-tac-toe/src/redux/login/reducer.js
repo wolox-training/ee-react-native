@@ -13,11 +13,10 @@ const initialState = {
 */
 
 const stateDescription = {
-  user: null,
-  logged: false
+  user: ''
 };
 
-const initialState = completeState(stateDescription, ['logged']);
+const initialState = completeState(stateDescription);
 /*
 const reducer = (state = immutable(initialState), action) => {
   switch (action.type) {
@@ -51,8 +50,8 @@ const reducer = (state = immutable(initialState), action) => {
 const reducerDescription = {
   primaryActions: [actions.LOGIN],
   override: {
-    [actions.LOGOUT]: state => state.merge({ logged: false, loginLoading: false }),
-    [actions.LOGIN_SUCCESS]: state => immutable({ ...state, logged: true, userError: '', userLoading: false })
+    [actions.LOGOUT]: state => immutable(state).merge({ user: '', userLoading: false })
+    // [actions.LOGIN_SUCCESS]: (state, action) => immutable({ ...state, logged: true, userError: '', userLoading: false, user: action.payload })
   }
 };
 
