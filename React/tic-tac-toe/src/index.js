@@ -4,7 +4,6 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 
-import AuthorizedRoute from './app/components/AuthorizedRoute';
 import store from './redux/store';
 import App from './app';
 import Login from './app/screens/Login';
@@ -26,10 +25,10 @@ const render = () => {
       <Provider store={store}>
         <Router history={history}>
           <Switch>
+            <Route exact path={routes.APP} component={App} />
             <Route path={routes.AUTH} component={Login} />
             <Redirect from={routes.LOGIN_SHORT} to={routes.LOGIN} />
-            <AuthorizedRoute path={routes.PROFILE} component={Profile} />
-            <Route path={routes.APP} component={App} />
+            <Route path={routes.PROFILE} component={Profile} />
             <Redirect to={routes.AUTH} />
           </Switch>
         </Router>

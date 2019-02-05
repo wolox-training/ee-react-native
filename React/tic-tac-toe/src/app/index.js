@@ -19,7 +19,7 @@ function App() {
 
 const mapStateToProps = store => ({
   logged: store.login.logged,
-  pending: store.login.pending
+  userLoading: store.login.userLoading
 });
 
 const AppWithLoading = withLoadingIndicator(App);

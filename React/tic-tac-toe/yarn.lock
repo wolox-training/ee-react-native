@@ -10176,10 +10176,10 @@ redux-form@^8.1.0:
     react-is "^16.7.0"
     react-lifecycles-compat "^3.0.4"
 
-redux-recompose@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/redux-recompose/-/redux-recompose-2.1.0.tgz#bbd7ef9d054d653f8bf025befb1e4218fa3f8ced"
-  integrity sha512-ISKRQfnmbMSkNjIN8GqMiYS9v/JOrqAzxgDcnRcQN0SH/IS7Ts0drqGYd32PhoTofjm4Ao8JRT6AIpo07s1AjA==
+redux-recompose@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/redux-recompose/-/redux-recompose-2.1.1.tgz#a051d52cf4125efb51f2b50142c59eb97342dfdb"
+  integrity sha512-/LLwQ03rjlj0OVDUAqfFDKDR7cxggdXT0TFryJnhMPmaAdnPEuOBwDESTuEEVPa9v70+RRuxMTUZ19ugnjMB7g==
 
 redux-thunk@^2.3.0:
   version "2.3.0"
