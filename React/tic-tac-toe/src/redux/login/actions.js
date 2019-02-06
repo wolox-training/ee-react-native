@@ -18,6 +18,7 @@ const privateActionCreators = {
     dispatch({
       type: actions.LOGIN_SUCCESS
     });
+    history.push(routes.APP);
   },
   loginFailure: problem => dispatch => {
     dispatch({

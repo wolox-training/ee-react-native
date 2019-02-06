@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
+import { WINNER_MOVE_1, WINNER_MOVE_2, WINNER_MOVE_3, WINNER_MOVE_4, WINNER_MOVE_5,
+  WINNER_MOVE_6, WINNER_MOVE_7, WINNER_MOVE_8, ARRAY_SIZE, TWO } from './constants';
 
 const calculateWinner = (squares) => {
   const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+    WINNER_MOVE_1,
+    WINNER_MOVE_2,
+    WINNER_MOVE_3,
+    WINNER_MOVE_4,
+    WINNER_MOVE_5,
+    WINNER_MOVE_6,
+    WINNER_MOVE_7,
+    WINNER_MOVE_8
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
@@ -34,7 +37,7 @@ const isBoardFullfilled = (squares) => {
 
 class Game extends Component {
   state = {
-    history: [{ squares: Array(9).fill(null) }],
+    history: [{ squares: Array(ARRAY_SIZE).fill(null), id: shortid.generate() }],
     stepNumber: 0,
     xIsNext: true
   };
@@ -60,7 +63,7 @@ class Game extends Component {
   jumpTo = (step) => () => {
     this.setState({
       stepNumber: step,
-      xIsNext: step % 2 === 0
+      xIsNext: step % TWO === 0
     });
   }
 
@@ -75,7 +78,7 @@ class Game extends Component {
         ? `Go to move #${move}`
         : 'Go to game start';
       return (
-        <li key={move}>
+        <li key={move.id}>
           <button type="button" onClick={this.jumpTo(move)}>{desc}</button>
         </li>
       );
