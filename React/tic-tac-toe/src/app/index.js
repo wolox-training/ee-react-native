@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Game from './screens/Game';
 import Topbar from './components/Topbar';
+import withLoadingIndicator from './components/LoadingHOC';
+import withAuthorize from './components/AuthorizeHOC';
 
 import '../scss/application.scss';
 
@@ -16,7 +18,11 @@ function App() {
 }
 
 const mapStateToProps = store => ({
-  logged: store.login.logged
+  logged: store.login.logged,
+  pending: store.login.pending
 });
 
-export default connect(mapStateToProps)(App);
+const AppWithLoading = withLoadingIndicator(App);
+const AppWithAuthorize = withAuthorize(AppWithLoading);
+
+export default connect(mapStateToProps)(AppWithAuthorize);
