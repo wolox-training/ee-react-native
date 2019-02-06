@@ -1,7 +1,7 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
-import { fetchMiddleware /* , configureMergeState */ } from 'redux-recompose';
+import { fetchMiddleware } from 'redux-recompose';
 
 
 import { loadState } from '../services/StorageService';
@@ -27,7 +27,5 @@ middlewares.push(fetchMiddleware);
 enhancers.push(applyMiddleware(...middlewares));
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line no-underscore-dangle
-
-// configureMergeState((state, newContent) => state.merge(newContent));
 
 export default createStore(reducers, persistedState, composeEnhancers(...enhancers));
