@@ -1,11 +1,14 @@
 import { stringArrayToObject } from '../../utils/stringUtils';
 import { login as loginService } from '../../services/LoginService';
+import { history } from '../../history';
+import routes from '../../constants/routes';
 
 export const actions = stringArrayToObject(
   [
     'LOGIN_REQUEST',
     'LOGIN_SUCCESS',
-    'LOGIN_FAILURE'
+    'LOGIN_FAILURE',
+    'LOGOUT'
   ],
   '@@LOGIN'
 );
@@ -33,6 +36,10 @@ const actionCreators = {
     } else {
       dispatch(privateActionCreators.loginFailure(response.problem));
     }
+  },
+  logout: () => dispatch => {
+    dispatch({ type: actions.LOGOUT });
+    history.push(routes.LOGIN);
   }
 };
 

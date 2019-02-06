@@ -5,10 +5,12 @@ import thunk from 'redux-thunk';
 import { loadState } from '../services/StorageService';
 
 import loggedUserReducer from './login/reducer';
+import screenReducer from './screen/reducer';
 
 const reducers = {
   login: loggedUserReducer,
-  form: formReducer
+  form: formReducer,
+  screen: screenReducer
 };
 
 const persistedState = loadState();
