@@ -1,6 +1,6 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import Reactotron from 'reactotron-react-native';
+// import Reactotron from 'reactotron-react-native';
 
 import todoReducer from './Todo/reducer';
 

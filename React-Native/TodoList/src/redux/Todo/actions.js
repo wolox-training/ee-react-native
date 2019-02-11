@@ -23,10 +23,10 @@ export default actionCreators = {
       type: actions.REMOVE_COMPLETED
     })
   },
-  toggleCheckedItem: index => dispatch => {
+  toggleCheckedItem: id => dispatch => {
     dispatch({
       type: actions.TOGGLE_CHECKED_ITEM,
-      payload: index
+      payload: id
     })
   }
 };

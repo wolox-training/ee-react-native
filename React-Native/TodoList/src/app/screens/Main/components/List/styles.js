@@ -2,22 +2,23 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
-  boxSmall: {
-    width: 200,
-    height: 200,
-    marginBottom: 10,
-    marginRight: 10,
-    backgroundColor: 'skyblue',
+  horizontalContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
-  boxLarge: {
-    width: 300,
-    height: 300,
-    marginBottom: 10,
-    marginRight: 10,
-    backgroundColor: 'steelblue',
+  removeButton: {
+    color: 'red',
+    fontSize: 28
   },
+  buttonsContainer: {
+    alignItems: 'center',
+    borderLeftWidth: 1,
+    borderLeftColor: 'lightblue',
+    flexDirection: 'row'
+  }
 });
 
 export default styles;
