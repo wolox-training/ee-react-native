@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   removeLabel: {
     textAlign: 'center',
-    color: 'white'
+    color: 'red'
   }
 });
 

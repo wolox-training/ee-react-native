@@ -19,7 +19,12 @@ const reducer = (state = initialState, action) => {
       });
     case actions.TOGGLE_CHECKED_ITEM:
       return immutable(state).merge({
-        state
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return { id: todo.id, text: todo.text, completed: !todo.completed};
+          }
+          return todo;
+        })
       });
     case actions.REMOVE_COMPLETED:
       return immutable(state).merge({

@@ -6,7 +6,7 @@ export default class Footer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.removeLabel}>Clean completed items</Text>
+        <Text style={styles.removeLabel} onPress={() => this.props.onRemoveCompleted()}>Clean completed items</Text>
       </View>
     )
   }

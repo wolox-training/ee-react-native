@@ -1,24 +1,34 @@
-import React, { Component } from 'react'
-import { ScrollView, Text, View, Checkbox } from 'react-native'
+import React, { Component } from 'react';
+import { ScrollView, Text, View, CheckBox } from 'react-native';
 import styles from './styles';
 
 export default class List extends Component {
+
   renderTodo = item => {
-    <View key={item.id}>
-      <Text>{item.text}</Text>
-        <Checkbox
-          checked={item.completed}
-          onPress={() => this.props.onRemoveItem(item.id)}
-        />
-    </View>
+    return (
+      <View key={item.id} style={styles.horizontalContainer}>
+        <Text style={styles.todoName}>{item.text}</Text>
+        <View style={styles.buttonsContainer}>
+          <CheckBox
+            value={item.completed}
+            onValueChange={() => this.props.onToggleItem(item.id)}
+          />
+          <Text
+            style={styles.removeButton}
+            onPress={() => this.props.onRemoveItem(item.id)}
+          >
+            &times;
+          </Text>
+        </View>
+      </View>
+    );
   }
 
   render() {
-    const { items } = this.props
     return (
       <ScrollView style={styles.container}>
-        {items.map(this.renderTodo)}
+        {this.props.items.map(this.renderTodo)}
       </ScrollView>
-    )
+    );
   }
 }
