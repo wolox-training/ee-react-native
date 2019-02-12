@@ -10,7 +10,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
-import Header from './components/Header';
 import Input from './components/Input';
 import List from './components/List';
 import Footer from './components/Footer';
@@ -18,8 +17,10 @@ import todoActions from '../../../redux/Todo/actions';
 import styles from './styles';
 
 class Main extends Component {
+  static navigationOptions = {
+    title: 'Todo-list',
+  };
 
-  // Chequear esto, todavía no hice nada para que el input me llene ese item que pido
   addItem = item => {
     this.props.addItem(item);
   }
@@ -39,7 +40,6 @@ class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
         <Input
           onSubmit={this.addItem}
           placeholder={'Type a todo, then hit enter to add it to the list'}
