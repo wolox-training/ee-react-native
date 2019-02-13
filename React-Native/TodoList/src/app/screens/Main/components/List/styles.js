@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderLeftColor: 'lightblue',
     flexDirection: 'row'
+  },
+  todoName: {
+    marginLeft: 10,
+    fontSize: 20
   }
 });
 

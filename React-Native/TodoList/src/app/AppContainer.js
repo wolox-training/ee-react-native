@@ -15,12 +15,12 @@ const RootStack = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: 'Todo App (and books too)',
       headerStyle: {
-        backgroundColor: '#ADD8E6',
+        backgroundColor: '#ADD8E6'
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
-        fontWeight: 'bold',
-      },
+        fontWeight: 'bold'
+      }
     })
   }
 });

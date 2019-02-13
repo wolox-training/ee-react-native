@@ -7,7 +7,7 @@ export default class List extends Component {
   renderTodo = item => {
     return (
       <View key={item.id} style={styles.horizontalContainer}>
-        <Text>{item.text}</Text>
+        <Text style={styles.todoName}>{item.text}</Text>
         <View style={styles.buttonsContainer}>
           <CheckBox
             value={item.completed}
