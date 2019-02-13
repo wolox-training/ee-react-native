@@ -2,10 +2,16 @@ import { createStackNavigator, createMaterialTopTabNavigator, createAppContainer
 
 import Main from './screens/Main';
 import Books from './screens/Books';
+import BookDetail from './screens/BookDetail';
+
+const BooksNavigator = createStackNavigator({
+  BooksMain: { screen: Books },
+  Detail: { screen: BookDetail }
+});
 
 const TopTabNavigator = createMaterialTopTabNavigator({
     Home: { screen: Main },
-    Books: { screen: Books }
+    Books: { screen: BooksNavigator }
   }
 );
 
