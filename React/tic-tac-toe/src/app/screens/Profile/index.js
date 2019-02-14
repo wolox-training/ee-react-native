@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
 import shortid from 'shortid';
+import { connect } from 'react-redux';
 
 import Topbar from '../../components/Topbar';
 import './styles.css';
 import logo from '../../assets/tictactoe.jpg';
+import withLoadingIndicator from '../../components/LoadingHOC';
+import withAuthorize from '../../components/AuthorizeHOC';
 
 const Profile = function Profile() {
   const numbers = [1, 2, 3, 4];
@@ -46,4 +49,13 @@ const Profile = function Profile() {
   );
 };
 
-export default Profile;
+const mapStateToProps = store => ({
+  logged: store.login.logged,
+  user: store.login.user,
+  userLoading: store.login.userLoading
+});
+
+const ProfWithLoading = withLoadingIndicator(Profile);
+const ProfWithAuthorize = withAuthorize(ProfWithLoading);
+
+export default connect(mapStateToProps)(ProfWithAuthorize);

@@ -1,15 +1,15 @@
 import React from 'react';
 import { PacmanLoader } from 'react-spinners';
 
-const withLoadingIndicator = Component => ({ pending, ...rest }) =>
-  pending
+const withLoadingIndicator = Component => ({ userLoading, ...rest }) =>
+  userLoading
     ? (
       <div>
         <PacmanLoader
           sizeUnit="px"
           size={150}
           color="#123abc"
-          loading={pending}
+          loading={userLoading}
         />
       </div>
     )
