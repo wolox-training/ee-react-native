@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, Text, View, CheckBox } from 'react-native';
 import styles from './styles';
 
-export default class List extends Component {
-
+class List extends Component {
   renderTodo = item => {
     return (
       <View key={item.id} style={styles.horizontalContainer}>
@@ -32,3 +31,5 @@ export default class List extends Component {
     );
   }
 }
+
+export default List;

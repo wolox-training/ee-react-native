@@ -1,13 +1,15 @@
 import { StyleSheet } from 'react-native';
+import { SKYBLUE, WHITE } from '../../../../../constants/colors';
+import { PADDING_BARS } from '../../../../../constants/dimensions';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'skyblue',
-    padding: 15,
+    backgroundColor: SKYBLUE,
+    padding: PADDING_BARS
   },
   title: {
     textAlign: 'center',
-    color: 'white',
+    color: WHITE,
   },
 });
 

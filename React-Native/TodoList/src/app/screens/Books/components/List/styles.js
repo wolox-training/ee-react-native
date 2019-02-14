@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { PADDING_BOOK, BOOK_SIZE } from '../../../../../constants/dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,26 +8,22 @@ const styles = StyleSheet.create({
   horizontalContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 15,
+    paddingHorizontal: PADDING_BOOK,
     paddingVertical: 10
-  },
-  removeButton: {
-    color: 'red',
-    fontSize: 28
   },
   rightContainer: {
     flex: 1,
     alignItems: 'flex-start',
     borderBottomWidth: 1,
     justifyContent: 'center',
-    marginHorizontal: 15,
-    height: 90,
-    width: 90
+    paddingHorizontal: PADDING_BOOK,
+    height: BOOK_SIZE,
+    width: BOOK_SIZE
   },
   image: {
     borderRadius: 45,
-    height: 90,
-    width: 90
+    height: BOOK_SIZE,
+    width: BOOK_SIZE
   },
   bookTitle: {
     fontSize: 20,
