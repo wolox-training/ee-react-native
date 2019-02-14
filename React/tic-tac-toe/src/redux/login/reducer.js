@@ -12,7 +12,7 @@ const initialState = completeState(stateDescription);
 const reducerDescription = {
   primaryActions: [actions.LOGIN],
   override: {
-    [actions.LOGOUT]: state => immutable(state).merge({ user: '', userLoading: false })
+    [actions.LOGOUT]: () => ({ ...initialState })
   }
 };
 
