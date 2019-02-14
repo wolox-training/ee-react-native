@@ -1,4 +1,5 @@
 import { createStackNavigator, createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
+import { LIGHTBLUE, WHITE } from '../constants/colors';
 
 import Main from './screens/Main';
 import Books from './screens/Books';
@@ -15,9 +16,9 @@ const RootStack = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: 'Todo App (and books too)',
       headerStyle: {
-        backgroundColor: '#ADD8E6',
+        backgroundColor: LIGHTBLUE,
       },
-      headerTintColor: '#fff',
+      headerTintColor: WHITE,
       headerTitleStyle: {
         fontWeight: 'bold',
       },

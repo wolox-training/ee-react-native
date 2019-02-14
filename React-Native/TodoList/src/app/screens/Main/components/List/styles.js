@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { RED, LIGHTBLUE } from '../../../../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,14 +11,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   removeButton: {
-    color: 'red',
+    color: RED,
     fontSize: 28
   },
   buttonsContainer: {
     alignItems: 'center',
     borderLeftWidth: 1,
-    borderLeftColor: 'lightblue',
+    borderLeftColor: LIGHTBLUE,
     flexDirection: 'row'
+  },
+  todoName: {
+    fontSize: 20
   }
 });
 

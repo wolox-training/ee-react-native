@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Books = function () {
+const Books = function Books() {
   return (
     <View>
       <Text>{/* TODO: Make a book list */}</Text>

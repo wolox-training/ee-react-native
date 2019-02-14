@@ -1,5 +1,5 @@
 import immutable from 'seamless-immutable';
-import shortid from 'shortid';
+import shortId from 'shortid';
 
 import { actions } from './actions';
 
@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.ADD_ITEM:
       return immutable(state).merge({
-        todos: [ ...state.todos, { id: shortid.generate(), text: action.payload, completed: false } ]
+        todos: [ ...state.todos, { id: shortId.generate(), text: action.payload, completed: false } ]
       });
     case actions.REMOVE_ITEM:
       return immutable(state).merge({
