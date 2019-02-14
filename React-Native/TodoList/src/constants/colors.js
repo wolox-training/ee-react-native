@@ -3,3 +3,4 @@ export const RED = 'red';
 export const SKYBLUE = 'skyblue';
 export const WHITE = 'white';
 export const WHITESMOKE = 'whitesmoke';
+export const OLD_BOOK_COLOR = '#F2DEBD';

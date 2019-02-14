@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, View, Image } from 'react-native';
 import styles from './styles';
+import { BOOK_DETAIL } from '../../../../../constants/routes';
 
 const bookPlaceholder = 'https://www.rulistings.com/Content/PlaceholderIcons/book_placeholder.png';
 
 class List extends Component {
+  goToDetails = item => () => {
+    this.props.navigation.navigate(BOOK_DETAIL, { item: item });
+  }
+
   renderItem = item => {
     return (
       <View key={item.id} style={styles.horizontalContainer}>
@@ -13,7 +18,11 @@ class List extends Component {
           source={{uri: !item.image_url ? bookPlaceholder : item.image_url}}
         />
         <View style={styles.rightContainer}>
-          <Text style={styles.bookTitle}>{item.title}</Text>
+          <Text
+            style={styles.bookTitle}
+            onPress={this.goToDetails(item)}
+          >
+            {item.title}</Text>
           <Text style={styles.bookAuthor}>{item.author}</Text>
         </View>
       </View>
