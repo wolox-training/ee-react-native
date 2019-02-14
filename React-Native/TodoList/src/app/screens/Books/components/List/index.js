@@ -7,7 +7,7 @@ const bookPlaceholder = 'https://www.rulistings.com/Content/PlaceholderIcons/boo
 
 class List extends Component {
   goToDetails = item => () => {
-    this.props.navigation.navigate(BOOK_DETAIL, item);
+    this.props.navigation.navigate(BOOK_DETAIL, { item: item });
   }
 
   renderItem = item => {
