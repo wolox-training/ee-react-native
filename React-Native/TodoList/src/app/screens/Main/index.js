@@ -18,38 +18,20 @@ import todoActions from '../../../redux/Todo/actions';
 import styles from './styles';
 
 class Main extends Component {
-
-  // Chequear esto, todavía no hice nada para que el input me llene ese item que pido
-  addItem = item => {
-    this.props.addItem(item);
-  }
-
-  removeItem = index => {
-    this.props.removeItem(index);
-  }
-
-  removeCompleted = () => {
-    this.props.removeCompleted();
-  }
-
-  toggleCheckedItem = index => {
-    this.props.toggleCheckedItem(index);
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <Header />
         <Input
-          onSubmit={this.addItem}
+          onSubmit={this.props.addItem}
           placeholder={'Type a todo, then hit enter to add it to the list'}
         />
         <List
           items={this.props.todos}
-          onRemoveItem={this.removeItem}
-          onToggleItem={this.toggleCheckedItem}
+          onRemoveItem={this.props.removeItem}
+          onToggleItem={this.props.toggleCheckedItem}
         />
-        <Footer onRemoveCompleted={this.removeCompleted}/>
+        <Footer onRemoveCompleted={this.props.removeCompleted}/>
       </View>
     );
   }

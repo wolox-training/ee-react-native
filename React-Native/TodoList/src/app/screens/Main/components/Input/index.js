@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import styles from './styles';
 
-export default class Input extends Component {
-
+class Input extends Component {
   state = {
     text: ''
   }
@@ -12,9 +11,7 @@ export default class Input extends Component {
 
   onSubmitEditing = () => {
     const { text } = this.state;
-
     if (!text) return;
-
     this.props.onSubmit(text);
     this.setState({ text: '' });
   }
@@ -31,3 +28,5 @@ export default class Input extends Component {
     )
   }
 }
+
+export default Input;
