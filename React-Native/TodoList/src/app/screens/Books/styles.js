@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { WHITESMOKE } from '../../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    backgroundColor: 'whitesmoke',
+    backgroundColor: WHITESMOKE
   },
 });
 
