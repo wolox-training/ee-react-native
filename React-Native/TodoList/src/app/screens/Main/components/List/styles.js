@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   todoName: {
+    marginLeft: 10,
     fontSize: 20
   }
 });

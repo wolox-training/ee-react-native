@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-const Books = function Books() {
-  return (
-    <View>
-      <Text>{/* TODO: Make a book list */}</Text>
-    </View>
-  );
+import List from './components/List';
+import styles from './styles';
+
+import books from '../../../../books';
+
+class Books extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <List
+          items={books}
+        />
+      </View>
+    );
+  }
 };
 
 export default Books;
