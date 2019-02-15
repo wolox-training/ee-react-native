@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import Main from './screens/Main';
+import React from 'react';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
+import AppContainer from './AppContainer';
 
-// import '../config';
-
-export default class App extends Component {
-  render () {
+function App () {
     return(
       <Provider store={store}>
-        <Main/>
+        <AppContainer/>
       </Provider>
     );
-  }
 };
+
+export default App;

@@ -10,7 +10,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
-import Header from './components/Header';
 import Input from './components/Input';
 import List from './components/List';
 import Footer from './components/Footer';
@@ -21,7 +20,6 @@ class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
         <Input
           onSubmit={this.props.addItem}
           placeholder={'Type a todo, then hit enter to add it to the list'}
