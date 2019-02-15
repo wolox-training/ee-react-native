@@ -15,6 +15,7 @@
           "~utils": "./src/utils"
         }
       }
-    ]
+    ],
+    ["emotion"]
   ]
 }

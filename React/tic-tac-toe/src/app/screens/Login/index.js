@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 
-import routes from '../../../constants/routes';
 import LoginActions from '../../../redux/login/actions';
 
 import LoginForm from './layout';
@@ -10,13 +10,12 @@ import LoginForm from './layout';
 class Login extends Component {
   handleSubmit = params => {
     this.props.login({ email: params.email, password: params.password });
-    this.props.history.push(routes.APP);
   };
 
   render() {
     return (
       <Fragment>
-        <div className="auth-error">{this.props.authError}</div>
+        <div className="auth-error">{this.props.userError}</div>
         <LoginForm onSubmit={this.handleSubmit} />
       </Fragment>
     );
@@ -24,7 +23,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = store => ({
-  authError: store.login.authError
+  userError: store.login.userError
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -32,9 +31,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Login.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
   login: PropTypes.func.isRequired,
-  authError: PropTypes.string
+  userError: PropTypes.string
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
